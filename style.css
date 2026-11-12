@@ -17,7 +17,12 @@ img{
     font-size: 40px;
 }
 
-#pontok{
+#gep_pontok{
+    text-shadow: 1px 1px red;
+    color: red;
+}
+
+#te_pontod{
     text-shadow: 1px 1px red;
     color: red;
 }

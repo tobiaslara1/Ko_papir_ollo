@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+
+    
 </head>
 <body>
         <div id="container">
             <h1>Kő - Papír - Olló</h1>
             <h2>Válassz!</h2>
             <div id="valasztasok">
-                <img src="img/ko.png" alt="ko">
-                <img src="img/papir.png" alt="papir">
-                <img src="img/ollo.png" alt="ollo">
+                <img id="ko" src="img/ko.png" alt="ko" onclick="jatszas('ko')">
+                <img id="papir" src="img/papir.png" alt="papir" onclick="jatszas('papir')">
+                <img id="ollo" src="img/ollo.png" alt="ollo" onclick="jatszas('ollo')">
             </div>
             <h2>Gép választása</h2>
-            <img src="img/ko.png" alt="">
+            <div>
+                <img id="gep_valasztas" src="img/ko.png" alt="">
+            </div>
             <p id="eredmeny">Eredmeny: Te nyertél!</p>
             <p>Te pontod</p>
-            <p id="pontok">2</p>
-            <p>Gép pontja</p>
-            <p id="pontok">1</p>
+            <p id="te_pontod"></p>
+            <p> Gép pontja</p>
+            <p id="gep_pontok"></p>
         </div>
 </body>
+<script src="app.js"></script>
 </html>
