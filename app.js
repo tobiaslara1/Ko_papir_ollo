@@ -13,40 +13,18 @@ function jatszas(elem){
     const gepkep = document.getElementById("gep_valasztas")
     gepkep.src = `img/${gepValasztas}.png`
     let eredmeny 
-    if (elem == "ko" ){
-        if (gepValasztas == "ko"){
-            eredmeny = "dontetlen"
-        }
-        else if (gepValasztas == "papir"){
-            eredmeny = "gep nyert"
-        }
-        else{
-            eredmeny = "t enyertel"
-        }
-    }
 
-    if (elem == "papir" ){
-        if (gepValasztas == "papir"){
-            eredmeny = "dontetlen"
-        }
-        else if (gepValasztas == "ollo"){
-            eredmeny = "gep nyert"
-        }
-        else{
-            eredmeny = "te nyertel"
-        }
+    if (elem == "papir" && gepValasztas == "ollo" || 
+        elem == "ollo" && gepValasztas == "ko" ||
+        elem == "ko" && gepValasztas == "papir"
+    ){
+        eredmeny = "gep nyert"
     }
-
-        if (elem == "ollo" ){
-        if (gepValasztas == "ollo"){
-            eredmeny = "dontetlen"
-        }
-        else if (gepValasztas == "ko"){
-            eredmeny = "gep nyert"
-        }
-        else{
-            eredmeny = "te nyertel"
-        }
+    else if (elem == gepValasztas){
+        eredmeny = "dontetlen"
+    }
+    else{
+        eredmeny = "te nyertel"
     }
 
     if (eredmeny == "te nyertel"){
@@ -58,6 +36,6 @@ function jatszas(elem){
         document.getElementById("gep_pontok").innerHTML = gepP
     }
 
-    document.getElementById("eredmeny").innerHTML = "Eredmeny" + eredmeny
+    document.getElementById("eredmeny").innerHTML = "Eredmeny " + eredmeny
     
 }
