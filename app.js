@@ -1,6 +1,17 @@
 let jatekosP = 0 
 let gepP = 0
 
+function ellenorzes(){
+    const nev = document.getElementById("fnev").value()
+    const email = document.getElementById("email")
+    const hiba = document.getElementById("hibauzenet")
+    if (nev.length < 8 || nev.length > 20){
+        hiba.innerHTML = "a felhasznalonevnek 8-20 karakter hosszunak kell lennia"
+        nev.focus()
+        return
+    }
+}
+
 function jatszas(elem){
     document.getElementById("ko").style.border= "0"
     document.getElementById("papir").style.border= "0"
