@@ -9,8 +9,8 @@
     
 </head>
 <body>
-    <fieldset>
-            <form action="">
+    <fieldset id="regisztracio">
+            <form  onsubmit="ellenorzes(event)">
                 <label for="fnev">Felhasznalonev:</label><br>
                 <input type="text" id="fnev" name="fnev"><br>
                 <label for="email">Email:</label><br>
@@ -33,10 +33,13 @@
             <img id="gep_valasztas" src="img/ko.png" alt="">
         </div>
         <p id="eredmeny">Eredmeny: Te nyertél!</p>
-        <p>Te pontod</p>
+        <p id="jatekosPont" ></p>
         <p id="te_pontod"></p>
-        <p> Gép pontja</p>
+        <p> Gép pontjai</p>
         <p id="gep_pontok"></p>
+
+         <button onclick="ujJatek()">Új játék</button>
+
     </div>
 </body>
 <script src="app.js"></script>
