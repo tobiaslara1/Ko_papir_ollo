@@ -21,8 +21,8 @@ function ellenorzes(event) {
         hiba.innerHTML = "Hibás email címet adtál meg!";
         return;
     }
-    else if (/\d/.test(nev)) {
-        hiba.innerHTML = "A felhasznaonev nem tartalmazhat szamot";
+    else if (/^[a-zA-Z]+$/.test(nev)) {
+        hiba.innerHTML = "A felhasznaonev csak betuket tartalmazhat";
         return;
     }
     else{
