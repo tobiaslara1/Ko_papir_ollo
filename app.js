@@ -21,11 +21,16 @@ function ellenorzes(event) {
         hiba.innerHTML = "Hibás email címet adtál meg!";
         return;
     }
+    else if (/\d/.test(nev)) {
+        hiba.innerHTML = "A felhasznaonev nem tartalmazhat szamot";
+        return;
+    }
     else{
         jatekosNev = nev;
 
         document.getElementById("regisztracio").style.display = "none";
         document.getElementById("container").style.display = "block";
+
         document.getElementById("jatekosPont").innerHTML = jatekosNev + " pontjai"
     }
 }
@@ -39,50 +44,40 @@ function jatszas(elem){
     let rnd = Math.floor(Math.random()*3)
     let valasztas = ["ko", "papir", "ollo"]
     let gepValasztas = valasztas[rnd]   
-    const gepkep = document.getElementById("gep_valasztas")
-    gepkep.src = `img/${gepValasztas}.png`
     let eredmeny 
+    const gepkep = document.getElementById("gep_valasztas")
+
+    gepkep.src = `img/${gepValasztas}.png`
 
     if (elem == "papir" && gepValasztas == "ollo" || 
         elem == "ollo" && gepValasztas == "ko" ||
         elem == "ko" && gepValasztas == "papir"
     ){
         eredmeny = "gep nyert"
+        gepP++  
+        document.getElementById("gep_pontok").innerHTML = gepP
     }
     else if (elem == gepValasztas){
         eredmeny = "dontetlen"
     }
     else{
         eredmeny = jatekosNev +  "nyertel"
-    }
-
-    if (eredmeny == jatekosNev + "nyertel"){
         jatekosP++
         document.getElementById("te_pontod").innerHTML = jatekosP
     }
-    else if (eredmeny == "gep nyert"){
-        gepP++  
-        document.getElementById("gep_pontok").innerHTML = gepP
-    }
-
     document.getElementById("eredmeny").innerHTML = "Eredmeny " + eredmeny
     
     if (jatekosP == 10) {
-    document.getElementById("eredmeny").innerHTML = 
-        "Gratulálok " + jatekosNev + "! Megnyerted a játékot!";
-
-    document.getElementById("valasztasok").style.pointerEvents = "none";
+        document.getElementById("eredmeny").innerHTML = "Gratulálok " + jatekosNev + "! Megnyerted a játékot!";
+        document.getElementById("valasztasok").style.pointerEvents = "none";
     }
     else if (gepP == 10) {
-        document.getElementById("eredmeny").innerHTML = 
-            "A gép nyerte az egész játékot! Vesztettél!";
-
+        document.getElementById("eredmeny").innerHTML = "A gép nyerte az egész játékot! Vesztettél!";
         document.getElementById("valasztasok").style.pointerEvents = "none";
-}
+    }
 }
 
 function ujJatek() {
-
     jatekosP = 0;
     gepP = 0;
 
